@@ -43,6 +43,8 @@ func main() {
 
 	router.HandleFunc("/health", controllers.HealthCheck).Methods("GET")
 
+	router.HandleFunc("/testeNew", controllers.CreateAccountNew).Methods("GET")
+
 	router.HandleFunc("/careersTest", controllers.ListaCareersToTest).Methods("GET")
 
 	router.HandleFunc("/user/new", controllers.CreateAccount).Methods("POST", "OPTIONS")
