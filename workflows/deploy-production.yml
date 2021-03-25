@@ -1,0 +1,29 @@
+name: Deploy to Google App Engine
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup env for production
+        env:
+          PROD_ENV_FILE: ${{ secrets.PROD_ENV_FILE }}
+        run: 
+          echo $PROD_ENV_FILE | base64 --decode > .env
+      
+      - name: print env file
+        run: cat .env     
+
+      - name: Set up Go API
+        uses: google-github-actions/deploy-appengine@main
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+          credentials: ${{ secrets.GCP_CREDENTIALS }}
