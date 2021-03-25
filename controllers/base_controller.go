@@ -7,7 +7,7 @@ import (
 	log "github.com/sirupsen/logrus"
 
 	"github.com/gorilla/mux"
-	"github.com/oliveira-a-rafael/my-career-api/utils"
+	"github.com/oliveira-a-rafael/mycareer-api/utils"
 )
 
 type CareerTest struct {

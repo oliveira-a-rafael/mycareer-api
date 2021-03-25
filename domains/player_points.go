@@ -4,7 +4,7 @@ import (
 	"errors"
 
 	"github.com/jinzhu/gorm"
-	"github.com/oliveira-a-rafael/my-career-api/database"
+	"github.com/oliveira-a-rafael/mycareer-api/database"
 	log "github.com/sirupsen/logrus"
 )
 

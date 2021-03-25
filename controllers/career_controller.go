@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/oliveira-a-rafael/my-career-api/domains"
-	"github.com/oliveira-a-rafael/my-career-api/utils"
+	"github.com/oliveira-a-rafael/mycareer-api/domains"
+	"github.com/oliveira-a-rafael/mycareer-api/utils"
 )
 
 var CreateCareer = func(w http.ResponseWriter, r *http.Request) {

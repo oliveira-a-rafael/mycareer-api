@@ -10,11 +10,11 @@ import (
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
-	"github.com/oliveira-a-rafael/my-career-api/app"
-	"github.com/oliveira-a-rafael/my-career-api/config"
-	"github.com/oliveira-a-rafael/my-career-api/controllers"
-	"github.com/oliveira-a-rafael/my-career-api/database"
-	"github.com/oliveira-a-rafael/my-career-api/domains"
+	"github.com/oliveira-a-rafael/mycareer-api/app"
+	"github.com/oliveira-a-rafael/mycareer-api/config"
+	"github.com/oliveira-a-rafael/mycareer-api/controllers"
+	"github.com/oliveira-a-rafael/mycareer-api/database"
+	"github.com/oliveira-a-rafael/mycareer-api/domains"
 )
 
 func main() {

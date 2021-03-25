@@ -9,8 +9,8 @@ import (
 	log "github.com/sirupsen/logrus"
 
 	"github.com/dgrijalva/jwt-go"
-	"github.com/oliveira-a-rafael/my-career-api/domains"
-	u "github.com/oliveira-a-rafael/my-career-api/utils"
+	"github.com/oliveira-a-rafael/mycareer-api/domains"
+	u "github.com/oliveira-a-rafael/mycareer-api/utils"
 )
 
 var JwtAuthentication = func(next http.Handler) http.Handler {

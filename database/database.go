@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/jinzhu/gorm"
-	"github.com/oliveira-a-rafael/my-career-api/config"
+	"github.com/oliveira-a-rafael/mycareer-api/config"
 )
 
 func GetInstance() *gorm.DB {

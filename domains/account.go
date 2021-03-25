@@ -9,8 +9,8 @@ import (
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/jinzhu/gorm"
-	"github.com/oliveira-a-rafael/my-career-api/database"
-	"github.com/oliveira-a-rafael/my-career-api/utils"
+	"github.com/oliveira-a-rafael/mycareer-api/database"
+	"github.com/oliveira-a-rafael/mycareer-api/utils"
 	"golang.org/x/crypto/bcrypt"
 )
 
