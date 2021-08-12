@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/google/wire"
 	log "github.com/sirupsen/logrus"
 
 	"github.com/gorilla/handlers"
@@ -15,6 +16,8 @@ import (
 	"github.com/oliveira-a-rafael/mycareer-api/controllers"
 	"github.com/oliveira-a-rafael/mycareer-api/database"
 	"github.com/oliveira-a-rafael/mycareer-api/domains"
+	"github.com/oliveira-a-rafael/mycareer-api/infrastructure/repositories"
+	"github.com/oliveira-a-rafael/mycareer-api/services"
 )
 
 func main() {
@@ -43,9 +46,19 @@ func main() {
 
 	router.HandleFunc("/health", controllers.HealthCheck).Methods("GET")
 
-	router.HandleFunc("/testeNew", controllers.CreateAccountNew).Methods("GET")
-
-	router.HandleFunc("/careersTest", controllers.ListaCareersToTest).Methods("GET")
+	//=== teste
+	dbx := database.GetInstance()
+	x := &repositories.AccountRepository{
+		DB: dbx,
+	}
+	accountControllerNew := &controllers.AccountController{
+		AccountService: &services.AccountService{
+			AccountRepository: repositories.AccountQuerier{},
+		},
+	}
+	wire.Build(accountControllerNew)
+	router.HandleFunc("/testeNew", accountControllerNew.CreateAccountNew).Methods("POST", "OPTIONS")
+	//==  teste
 
 	router.HandleFunc("/user/new", controllers.CreateAccount).Methods("POST", "OPTIONS")
 	router.HandleFunc("/user/login", controllers.Authenticate).Methods("POST", "OPTIONS")

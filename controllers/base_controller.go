@@ -15,19 +15,6 @@ type CareerTest struct {
 	Club  string
 }
 
-var ListaCareersToTest = func(w http.ResponseWriter, r *http.Request) {
-	careers := []CareerTest{}
-
-	pb := CareerTest{
-		Title: "Career One",
-		Club:  "Liverpoll",
-	}
-
-	careers = append(careers, pb)
-
-	utils.RespondNew(w, careers)
-}
-
 var Cors = func(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	if r.Method == http.MethodOptions {

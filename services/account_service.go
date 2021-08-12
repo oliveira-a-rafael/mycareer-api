@@ -1,6 +1,8 @@
 package services
 
 import (
+	"fmt"
+
 	"github.com/oliveira-a-rafael/mycareer-api/domains"
 	"github.com/oliveira-a-rafael/mycareer-api/infrastructure/repositories"
 )
@@ -10,9 +12,11 @@ type AccountContract interface {
 }
 
 type AccountService struct {
-	AccountRepository repositories.AccountQuerier
+	AccountRepository repositories.AccountQuerier `inject:""`
 }
 
 func (s *AccountService) CreateAccount(account *domains.Account) error {
-	return s.AccountRepository.Insert(account)
+	fmt.Println("account: ", account)
+	// return s.AccountRepository.Insert(account)
+	return nil
 }
