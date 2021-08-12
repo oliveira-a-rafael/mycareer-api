@@ -8,30 +8,30 @@ import (
 	"github.com/oliveira-a-rafael/mycareer-api/utils"
 )
 
-var CreateAccount = func(w http.ResponseWriter, r *http.Request) {
+// var CreateAccount = func(w http.ResponseWriter, r *http.Request) {
 
-	account := &domains.Account{}
-	err := json.NewDecoder(r.Body).Decode(account)
-	if err != nil {
-		w.WriteHeader(http.StatusUnprocessableEntity)
-		utils.RespondError(w, err)
-		return
-	}
+// 	account := &domains.AccountOld{}
+// 	err := json.NewDecoder(r.Body).Decode(account)
+// 	if err != nil {
+// 		w.WriteHeader(http.StatusUnprocessableEntity)
+// 		utils.RespondError(w, err)
+// 		return
+// 	}
 
-	account, err = account.Create()
-	if err != nil {
-		w.WriteHeader(http.StatusUnprocessableEntity)
-		utils.RespondError(w, err)
-		return
-	}
+// 	account, err = account.Create()
+// 	if err != nil {
+// 		w.WriteHeader(http.StatusUnprocessableEntity)
+// 		utils.RespondError(w, err)
+// 		return
+// 	}
 
-	w.WriteHeader(http.StatusCreated)
-	utils.RespondNew(w, account)
-}
+// 	w.WriteHeader(http.StatusCreated)
+// 	utils.RespondNew(w, account)
+// }
 
 var Authenticate = func(w http.ResponseWriter, r *http.Request) {
 
-	var account = &domains.Account{}
+	var account = &domains.AccountOld{}
 	err := json.NewDecoder(r.Body).Decode(account)
 	if err != nil {
 		w.WriteHeader(http.StatusUnauthorized)
@@ -58,7 +58,7 @@ var ListCareers = func(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	account := &domains.Account{}
+	account := &domains.AccountOld{}
 	account.ID = userLogged
 	err, careers := account.ListCareers()
 	if err != nil {
