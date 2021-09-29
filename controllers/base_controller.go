@@ -30,6 +30,10 @@ var ListaCareersToTest = func(w http.ResponseWriter, r *http.Request) {
 
 var Cors = func(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
+	header := w.Header()
+	header.Add("Access-Control-Allow-Origin", "*")
+	header.Add("Access-Control-Allow-Methods", "DELETE, POST, GET, OPTIONS")
+	header.Add("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With")
 	if r.Method == http.MethodOptions {
 		return
 	}
