@@ -70,9 +70,15 @@ func main() {
 
 	log.Fatal(http.ListenAndServe(":"+port,
 		handlers.CORS(
-			handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization", "Accept", "Accept-Endcoding", "Content-Length"}),
+			handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization", "Accept", "Accept-Endcoding", "Content-Length", "Access-Control-Allow-Headers"}),
 			handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"}),
 			handlers.AllowedOrigins(config.ALLOWED_HOSTS))(router)))
+	// handlers.AllowedOrigins(config.ALLOWED_HOSTS))(router)))
+
+	// ---
+	// header.Add("Access-Control-Allow-Origin", "*")
+	// header.Add("Access-Control-Allow-Methods", "DELETE, POST, GET, OPTIONS")
+	// header.Add("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With")
 
 }
 
