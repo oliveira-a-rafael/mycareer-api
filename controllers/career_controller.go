@@ -114,7 +114,6 @@ var GetCareer = func(w http.ResponseWriter, r *http.Request) {
 	career.ID = id
 	career.AccountID = userLogged
 	career, err = career.GetCareer()
-	career.CountTotalPlayers()
 
 	if err != nil {
 		w.WriteHeader(http.StatusNotFound)

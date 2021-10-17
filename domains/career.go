@@ -119,22 +119,13 @@ func (career *Career) GetCareer() (*Career, error) {
 		return career, err
 	}
 
-	var players []Player
-	db.Preload("careers").Find(&players)
+	err = db.Model(&Player{}).Where("career_id = ?", career.ID).Count(&career.TotalPlayer).Error
 	if err != nil {
 		defer db.Close()
 		return career, err
 	}
 
-	for _, p := range players {
-		err = p.GetSkills2()
-		if err != nil {
-			return career, err
-		}
-	}
-
-	career.Players = players
-
+	defer db.Close()
 	return career, err
 }
 
@@ -150,9 +141,11 @@ func (career *Career) belongsToAccount() (err error) {
 	}
 
 	if found.ID < 1 || found.AccountID < 1 {
+		defer db.Close()
 		return errors.New("Error on get carrer for this account")
 	}
 
+	defer db.Close()
 	return nil
 }
 
@@ -174,8 +167,4 @@ func (career *Career) ListPlayers() ([]Player, error) {
 
 	return players, err
 
-}
-
-func (career *Career) CountTotalPlayers() {
-	career.TotalPlayer = len(career.Players)
 }
