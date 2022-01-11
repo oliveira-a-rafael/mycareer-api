@@ -20,6 +20,8 @@ out_env.txt
 app.local.deploy
 prod.env
 prod.txt
+.env_prod
+.env
 
 # horusec
 horusec-config.json

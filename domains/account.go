@@ -7,7 +7,7 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	"github.com/dgrijalva/jwt-go"
+	"github.com/golang-jwt/jwt"
 	"github.com/jinzhu/gorm"
 	"github.com/oliveira-a-rafael/mycareer-api/database"
 	"github.com/oliveira-a-rafael/mycareer-api/utils"

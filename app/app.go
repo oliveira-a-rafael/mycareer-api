@@ -8,7 +8,7 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	"github.com/dgrijalva/jwt-go"
+	"github.com/golang-jwt/jwt"
 	"github.com/oliveira-a-rafael/mycareer-api/domains"
 	u "github.com/oliveira-a-rafael/mycareer-api/utils"
 )
